@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PKI Manager</title>
+  <link href="/static/css/style.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <div class="d-flex">
+    <!-- Sidebar -->
+    <aside class="sidebar p-3">
+      <div class="brand mb-4">
+        <img src="/static/img/logo-placeholder.png" alt="PKI" height="40">
+        <div class="brand-title mt-2">Курсова робота з Криптографії та стеганографії</div>
+        <div class="brand-sub">Суслова М. гр.ТЗ-24у-1, 125 Кібербезпека та захист інформації</div>
+      </div>
+
+      <nav class="nav flex-column">
+        <button id="btnRoot" class="nav-btn">Створити Root CA</button>
+        <button id="btnInter" class="nav-btn">Створити Intermediate CA</button>
+        <button id="btnServer" class="nav-btn">Генерувати Server Certificate</button>
+        <button id="btnClient" class="nav-btn">Генерувати Client Certificate</button>
+      </nav>
+
+      <hr>
+      <div class="small text-muted">Документація</div>
+      <a class="link-doc" href="#" onclick="alert('README: використовуйте кнопки для генерації, потім оновіть список сертифікатів')">README</a>
+    </aside>
+
+    <!-- Content -->
+    <main class="content p-4 flex-grow-1">
+      <div class="container-fluid">
+        <h2>Інформаційна панель PKI</h2>
+        <p class="text-muted">Звідси можна швидко керувати PKI: створювати CA та сертифікати.</p>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card panel">
+              <div class="card-body">
+                <h5 class="card-title">Журнал подій</h5>
+                <pre id="logBox" class="logbox">Логи поки що відсутні...</pre>
+                <div class="mt-2">
+                  <button id="btnRefreshLogs" class="btn btn-sm btn-outline-primary">Оновити лог</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card panel mt-3">
+              <div class="card-body">
+                <h5 class="card-title">Допомога</h5>
+                <p class="text-muted small">Почніть з <strong>Створити Root CA</strong>, потім <strong>Intermediate</strong>, потім генерація сертифікатів.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card panel">
+              <div class="card-body">
+                <h5 class="card-title">Сертифікати</h5>
+                <p class="text-muted small">Показані лише файли сертифікатів (.pem, .crt, .cer, .csr)</p>
+                <ul id="certList" class="list-group mb-2"></ul>
+                <div class="d-flex gap-2">
+                  <button id="btnRefreshCerts" class="btn btn-outline-primary btn-sm">Оновити список</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card panel mt-3">
+              <div class="card-body">
+                <h5 class="card-title">Статус</h5>
+                <div id="statusBox" class="text-success">Готово</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/js/script.js"></script>
+</body>
+</html>
